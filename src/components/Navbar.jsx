@@ -37,7 +37,11 @@ export default function Navbar({ navBackground }) {
           placeholder="Artists, songs, or podcasts"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          onSubmit={handleSearch} 
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              handleSearch();
+            }
+          }}
         />
       </div>
 
